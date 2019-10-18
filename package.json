@@ -1,0 +1,31 @@
+{
+	"name": "simple-exec",
+	"version": "1.0.0",
+	"description": "Simple command executor.",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest",
+		"build": "node ./scripts/build.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/igorskyflyer/npm-simple-exec.git"
+	},
+	"keywords": [
+		"execute",
+		"command",
+		"shell",
+		"run",
+		"launch",
+		"issue"
+	],
+	"author": "Igor Dimitrijević",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/igorskyflyer/npm-simple-exec/issues"
+	},
+	"homepage": "https://github.com/igorskyflyer/npm-simple-exec#readme",
+	"devDependencies": {
+		"jest": "^24.8.0"
+	}
+}
