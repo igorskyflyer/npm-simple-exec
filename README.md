@@ -65,19 +65,35 @@ simple.executeCallback('node --version', result => {
 
 ### execute(command: string): Promise&lt;string&gt;
 
+#### Example 1 - async/await
+
 ```js
 const simple = require('simple-exec')
 
-const result = await simple.execute('npm --version')
+try {
+	const result = await simple.execute('npm --version')
 
-// or use then(),
-// instead of await
-
-if (result.error) {
-	console.error(result.error) // log the error
-} else {
 	console.log(result) // log NPM version
+} catch (exp) {
+	console.error(result.error) // log the error
 }
+```
+
+<br>
+
+#### Example 2 - async/then
+
+```js
+const simple = require('simple-exec')
+
+simple
+	.execute('npm --version')
+	.then(version => {
+		console.log(version) // log NPM version
+	})
+	.catch(error => {
+		console.error(error) // log the error
+	})
 ```
 
 <br>
