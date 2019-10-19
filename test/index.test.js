@@ -59,3 +59,19 @@ describe('execute()', () => {
 		MAX_TIMEOUT
 	)
 })
+
+describe('executeParallel()', () => {
+	test(
+		'execute a batch of commands in parallel',
+		async done => {
+			app
+				.executeParallel('npm --version', 'node --version', 'npm --version')
+				.then(results => {
+					expect(results).toHaveLength(3)
+					done()
+				})
+				.catch(error => {})
+		},
+		MAX_TIMEOUT
+	)
+})
