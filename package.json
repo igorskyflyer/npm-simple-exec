@@ -1,11 +1,11 @@
 {
 	"name": "simple-exec",
-	"version": "1.1.1",
+	"version": "1.2.0",
 	"description": "Command. Execution. Made. Simple.",
 	"main": "index.js",
 	"scripts": {
 		"test": "jest",
-		"build": "node ./scripts/build.js"
+		"gen": "node ./scripts/build.js"
 	},
 	"repository": {
 		"type": "git",
