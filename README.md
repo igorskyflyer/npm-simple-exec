@@ -10,7 +10,7 @@
 
 <br>
 
-✨Since `v.1.3.0` `SimpleExec` is a hybrid module that supports both CommonJS (legacy) and ES modules, thanks to [Modern Module](https://github.com/igorskyflyer/npm-modern-module).
+✨Since `v.2.0.0` `SimpleExec` is a hybrid module that supports both CommonJS (legacy) and ES modules, thanks to [Modern Module](https://github.com/igorskyflyer/npm-modern-module).
 
 <br>
 
