@@ -1,11 +1,27 @@
 {
 	"name": "simple-exec",
-	"version": "1.2.0",
-	"description": "Command. Execution. Made. Simple.",
-	"main": "index.js",
+	"version": "2.0.0",
+	"description": "🕺 Command. Execution. Made. Simple. ▶",
+	"engines": {
+		"node": ">=12.17"
+	},
+	"sideEffects": false,
+	"main": "./src/index",
+	"exports": {
+		".": {
+			"require": "./src/index.js",
+			"import": "./src/index.mjs"
+		}
+	},
+	"module": "./src/index.mjs",
+	"types": "./dist/index",
+	"files": [
+		"dist",
+		"src"
+	],
 	"scripts": {
 		"test": "jest",
-		"release": "node ./scripts/release.js"
+		"pub": "npm test && tsc && npm publish"
 	},
 	"repository": {
 		"type": "git",
@@ -29,6 +45,8 @@
 	},
 	"homepage": "https://github.com/igorskyflyer/npm-simple-exec#readme",
 	"devDependencies": {
-		"jest": "^24.8.0"
+		"@types/jest": "^26.0.24",
+		"@types/node": "^12.20.19",
+		"jest": "^27.0.6"
 	}
 }
