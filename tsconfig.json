@@ -1,0 +1,24 @@
+{
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		"node_modules/**/*"
+	],
+	"compilerOptions": {
+		"module": "ES6",
+		"allowJs": true,
+		"checkJs": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"declarationDir": "dist",
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"noEmitOnError": true,
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true
+	}
+}
