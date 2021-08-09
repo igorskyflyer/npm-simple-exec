@@ -3,7 +3,7 @@
 ## Node modules
 /node_modules/
 ## Release directory
-/release/
+/dist/
 
 # Files
 
@@ -11,4 +11,3 @@
 .npmignore
 ## GitHub social image
 git-social.png
-
