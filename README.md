@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://github.com/igorskyflyer/npm-simple-exec/raw/master/assets/simple-exec.png" title="SimpleExec - Command. Execution. Made. Simple." alt="SimpleExec">
+	<img src="https://github.com/igorskyflyer/npm-simple-exec/raw/master/assets/simple-exec.png" title="SimpleExec - Command. Execution. Made. Simple." alt="SimpleExec" width="180" height="180">
 </p>
 
 <h2 align="center">SimpleExec</h2>
@@ -7,6 +7,12 @@
 <p align="center">
 	<em>Command.</em> <strong>Execution.</strong> <em>Made.</em> <strong>Simple.</strong>
 </p>
+
+<br>
+
+✨Since `v.1.3.0` `SimpleExec` is a hybrid module that supports both CommonJS (legacy) and ES modules, thanks to [Modern Module](https://github.com/igorskyflyer/npm-modern-module).
+
+<br>
 
 <p align="center">
  <a href="#key-features">Key features</a>
@@ -81,9 +87,9 @@ const simple = require('simple-exec')
 const result = simple.executeSync('dir /b')
 
 if (result.error) {
-	console.error(result.error) // log the error
+  console.error(result.error) // log the error
 } else {
-	console.log(result.output) // log the contents of the directory
+  console.log(result.output) // log the contents of the directory
 }
 ```
 
@@ -98,12 +104,12 @@ _Asynchronously, with a callback runs the specified command._
 ```js
 const simple = require('simple-exec')
 
-simple.executeCallback('node --version', result => {
-	if (result.error) {
-		console.error(result.error) // log the error
-	} else {
-		console.log(result.output) // log Node version
-	}
+simple.executeCallback('node --version', (result) => {
+  if (result.error) {
+    console.error(result.error) // log the error
+  } else {
+    console.log(result.output) // log Node version
+  }
 })
 ```
 
@@ -121,11 +127,11 @@ _Asynchronously runs the specified command._
 const simple = require('simple-exec')
 
 try {
-	const result = await simple.execute('npm --version')
+  const result = await simple.execute('npm --version')
 
-	console.log(result) // log NPM version
+  console.log(result) // log NPM version
 } catch (exp) {
-	console.error(result.error) // log the error
+  console.error(result.error) // log the error
 }
 ```
 
@@ -137,13 +143,13 @@ try {
 const simple = require('simple-exec')
 
 simple
-	.execute('npm --version')
-	.then(version => {
-		console.log(version) // log NPM version
-	})
-	.catch(error => {
-		console.error(error) // log the error
-	})
+  .execute('npm --version')
+  .then((version) => {
+    console.log(version) // log NPM version
+  })
+  .catch((error) => {
+    console.error(error) // log the error
+  })
 ```
 
 <br>
@@ -156,13 +162,13 @@ _Asynchronously and in parallel runs the specified commands._
 const simple = require('simple-exec')
 
 simple
-	.executeParallel('npm --version', 'node --version', 'npm pack')
-	.then(results => {
-		console.log(results) // log the results which is a string array
-	})
-	.catch(error => {
-		console.error(error) // log the error
-	})
+  .executeParallel('npm --version', 'node --version', 'npm pack')
+  .then((results) => {
+    console.log(results) // log the results which is a string array
+  })
+  .catch((error) => {
+    console.error(error) // log the error
+  })
 ```
 
 <br>
@@ -175,13 +181,13 @@ _Asynchronously and in parallel runs the specified commands._
 const simple = require('simple-exec')
 
 simple
-	.executeParallel(['npm --version', 'node --version', 'npm pack'])
-	.then(results => {
-		console.log(results) // log the results which is a string array
-	})
-	.catch(error => {
-		console.error(error) // log the error
-	})
+  .executeParallel(['npm --version', 'node --version', 'npm pack'])
+  .then((results) => {
+    console.log(results) // log the results which is a string array
+  })
+  .catch((error) => {
+    console.error(error) // log the error
+  })
 ```
 
 <br>
