@@ -56,7 +56,7 @@
 ## Install
 
 ```js
-npm install --save simple-exec
+npm i simple-exec
 ```
 
 <br>
@@ -82,7 +82,7 @@ _Synchronously runs the specified command._
 <br>
 
 ```js
-const simple = require('simple-exec')
+import * as simple from 'simple-exec'
 
 const result = simple.executeSync('dir /b')
 
@@ -102,7 +102,7 @@ _Asynchronously, with a callback runs the specified command._
 <br>
 
 ```js
-const simple = require('simple-exec')
+import * as simple from 'simple-exec'
 
 simple.executeCallback('node --version', (result) => {
   if (result.error) {
@@ -124,7 +124,7 @@ _Asynchronously runs the specified command._
 #### Example 1 - async/await
 
 ```js
-const simple = require('simple-exec')
+import * as simple from 'simple-exec'
 
 try {
   const result = await simple.execute('npm --version')
@@ -140,7 +140,7 @@ try {
 #### Example 2 - async/then
 
 ```js
-const simple = require('simple-exec')
+import * as simple from 'simple-exec'
 
 simple
   .execute('npm --version')
@@ -159,7 +159,7 @@ simple
 _Asynchronously and in parallel runs the specified commands._
 
 ```js
-const simple = require('simple-exec')
+import * as simple from 'simple-exec'
 
 simple
   .executeParallel('npm --version', 'node --version', 'npm pack')
@@ -178,7 +178,7 @@ simple
 _Asynchronously and in parallel runs the specified commands._
 
 ```js
-const simple = require('simple-exec')
+import * as simple from 'simple-exec'
 
 simple
   .executeParallel(['npm --version', 'node --version', 'npm pack'])
@@ -195,5 +195,5 @@ simple
 ## Test
 
 ```js
-npm install && npm test
+npm i && npm test
 ```
