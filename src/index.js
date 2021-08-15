@@ -1,7 +1,9 @@
-const childProcess = require('child_process')
+import { execSync, exec } from 'child_process'
 
 /**
- * @typedef {{error: string, output: string}} ExecResult
+ * @typedef {object} ExecResult
+ * @property {string|unknown} error
+ * @property {string} output
  */
 
 /**
@@ -16,17 +18,21 @@ const childProcess = require('child_process')
  * @throws Will throw an error if no command is provided.
  * @returns {ExecResult} Returns the standard output.
  */
-function executeSync(command) {
+export function executeSync(command) {
   if (typeof command !== 'string') {
     throw 'Error: No command provided.'
   }
 
   try {
-    const output = childProcess.execSync(command).toString().trim()
+    const output = execSync(command).toString().trim()
 
     return { error: '', output }
   } catch (exp) {
-    return { error: exp.message.trim(), output: '' }
+    if (exp instanceof Error) {
+      return { error: exp.message, output: '' }
+    } else {
+      return { error: exp, output: '' }
+    }
   }
 }
 
@@ -38,12 +44,12 @@ function executeSync(command) {
  * @throws Will throw an error if no command is provided.
  * @returns {void}
  */
-function executeCallback(command, callback) {
+export function executeCallback(command, callback) {
   if (typeof command !== 'string') {
     throw 'Error: No command provided.'
   }
 
-  childProcess.exec(command, (error, stdout) => {
+  exec(command, (error, stdout) => {
     stdout = stdout.trim()
 
     if (error) {
@@ -62,7 +68,7 @@ function executeCallback(command, callback) {
  * @throws Will throw an error if no command is provided.
  * @returns {Promise<string>}
  */
-async function execute(command) {
+export async function execute(command) {
   return new Promise((resolve, reject) => {
     executeCallback(command, (result) => {
       if (result.error) {
@@ -81,7 +87,7 @@ async function execute(command) {
  * @throws Will throw an error if any of the commands is not defined.
  * @returns {Promise<string[]>}
  */
-async function executeParallel(args) {
+export async function executeParallel(args) {
   if (!args) {
     throw 'Error: No arguments provided.'
   }
@@ -106,5 +112,3 @@ async function executeParallel(args) {
 
   return Promise.all(commands)
 }
-
-module.exports = { executeSync, executeCallback, execute, executeParallel }
