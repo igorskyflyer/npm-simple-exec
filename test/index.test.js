@@ -1,74 +1,62 @@
-const app = require('../src/index.js')
-
-const MAX_TIMEOUT = 15000
+import { assert } from 'chai'
+import { executeSync, executeCallback, execute, executeParallel } from '../src/index.js'
 
 describe('executeSync()', () => {
-  test('execute a command and return the output', () => {
-    const result = app.executeSync('npm --version')
-    expect(result.output).not.toHaveLength(0)
+  it('execute a command and return the output', () => {
+    const result = executeSync('npm --version')
+    assert.isNotEmpty(result.output)
   })
 
-  test('execute a non existing command and return an error', () => {
-    const result = app.executeSync('npm --versionsomda')
+  it('execute a non existing command and return an error', () => {
+    // cspell:disable-next
+    const result = executeSync('npm --versionsomda')
 
     if (result.error) {
-      expect(result.error).not.toHaveLength(0)
+      assert.isNotEmpty(result.error)
     }
   })
 })
 
 describe('executeCallback()', () => {
-  test('execute a command and return the output', () => {
-    app.executeCallback('npm --version', (result) => {
-      expect(result.output).not.toHaveLength(0)
+  it('execute a command and return the output', () => {
+    executeCallback('npm --version', (result) => {
+      assert.isNotEmpty(result.output)
     })
   })
 
-  test('execute a non existing command and return an error', () => {
-    app.executeCallback('npm --versionsomda', (result) => {
+  it('execute a non existing command and return an error', () => {
+    // cspell:disable-next
+    executeCallback('npm --versionsomda', (result) => {
       if (result.error) {
-        expect(result.error).not.toHaveLength(0)
+        assert.isNotEmpty(result.error)
       }
     })
   })
 })
 
 describe('execute()', () => {
-  test(
-    'execute a command and return the output',
-    () => {
-      return app.execute('npm --version').then((result) => {
-        expect(result).not.toHaveLength(0)
-      })
-    },
-    MAX_TIMEOUT
-  )
+  it('execute a command and return the output', () => {
+    return execute('npm --version').then((result) => {
+      assert.isNotEmpty(result)
+    })
+  })
 
-  test(
-    'execute a non existing command and return an error',
-    () => {
-      return app
-        .execute('npm --versionsomda')
-        .then((result) => {})
-        .catch((error) => {
-          expect(error).not.toHaveLength(0)
-        })
-    },
-    MAX_TIMEOUT
-  )
+  it('execute a non existing command and return an error', () => {
+    // cspell:disable-next
+    return execute('npm --versionsomda')
+      .then((result) => {})
+      .catch((error) => {
+        assert.isNotEmpty(error)
+      })
+  })
 })
 
 describe('executeParallel()', () => {
-  test(
-    'execute a batch of commands in parallel',
-    () => {
-      return app
-        .executeParallel('npm --version', 'node --version', 'npm --version')
-        .then((results) => {
-          expect(results).toHaveLength(3)
-        })
-        .catch((error) => {})
-    },
-    MAX_TIMEOUT
-  )
+  it('execute a batch of commands in parallel', () => {
+    return executeParallel('npm --version', 'node --version', 'npm --version')
+      .then((results) => {
+        assert.equal(results.length, 3)
+      })
+      .catch((error) => {})
+  })
 })
