@@ -1,27 +1,28 @@
 {
 	"name": "simple-exec",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"description": "🕺 Command. Execution. Made. Simple. ▶",
-	"engines": {
-		"node": ">=12.17"
-	},
+	"type": "module",
 	"sideEffects": false,
-	"main": "./src/index",
+	"main": "./dist/compat/index.js",
 	"exports": {
 		".": {
-			"require": "./src/index.js",
-			"import": "./src/index.mjs"
+			"require": "./dist/compat/index.js",
+			"import": "./src/index.js"
 		}
 	},
-	"module": "./src/index.mjs",
-	"types": "./dist/index",
+	"module": "./src/index.js",
+	"types": "./dist/types",
 	"files": [
-		"dist",
-		"src"
+		"src",
+		"dist"
 	],
 	"scripts": {
-		"test": "jest",
-		"pub": "npm test && tsc && npm publish"
+		"compat": "tsc -m CommonJS -t ES5 --outDir ./dist/compat && hybridize --out ./dist/compat --module cjs --overwrite",
+		"types": "tsc --d --emitDeclarationOnly --declarationDir ./dist/types",
+		"build": "npm run compat && npm run types",
+		"test": "mocha --timeout 15000",
+		"pub": "npm test && npm run build && npm publish"
 	},
 	"repository": {
 		"type": "git",
@@ -45,9 +46,12 @@
 	},
 	"homepage": "https://github.com/igorskyflyer/npm-simple-exec#readme",
 	"devDependencies": {
-		"@types/jest": "^26.0.24",
-		"@types/node": "^12.20.19",
-		"jest": "^27.0.6",
+		"@igor.dvlpr/hybridize": "^1.0.0",
+		"@types/chai": "^4.2.21",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "^14.0",
+		"chai": "^4.3.4",
+		"mocha": "^9.0.3",
 		"typescript": "^4.3.5"
 	}
 }
