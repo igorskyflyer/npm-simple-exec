@@ -1,6 +1,6 @@
 {
 	"name": "simple-exec",
-	"version": "2.1.0",
+	"version": "2.1.1",
 	"description": "🕺 Command. Execution. Made. Simple. ▶",
 	"type": "module",
 	"sideEffects": false,
