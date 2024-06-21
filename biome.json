@@ -17,5 +17,14 @@
 			"semicolons": "asNeeded",
 			"trailingCommas": "none"
 		}
+	},
+	"linter": {
+		"rules": {
+			"style": {
+				"noUselessElse": "off",
+				"noParameterAssign": "off",
+				"noArguments": "off"
+			}
+		}
 	}
 }
