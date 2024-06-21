@@ -23,6 +23,13 @@
 </p>
 
 <br>
+<br>
+
+>
+> This package has been deprecated, please use [@igor.dvlpr/simple-exec](https://www.npmjs.com/package/@igor.dvlpr/simple-exec) instead.
+>
+
+<br>
 
 ✨Since `v.2.0.0` `SimpleExec` is a hybrid module that supports both CommonJS (legacy) and ES modules, thanks to [Modern Module](https://github.com/igorskyflyer/npm-modern-module).
 
