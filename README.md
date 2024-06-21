@@ -86,9 +86,9 @@ _Synchronously runs the specified command._
 <br>
 
 ```js
-import * as simple from 'simple-exec'
+import { executeSync } from 'simple-exec'
 
-const result = simple.executeSync('dir /b')
+const result = executeSync('dir /b')
 
 if (result.error) {
   console.error(result.error) // log the error
@@ -106,9 +106,9 @@ _Asynchronously, with a callback runs the specified command._
 <br>
 
 ```js
-import * as simple from 'simple-exec'
+import { executeCallback } from 'simple-exec'
 
-simple.executeCallback('node --version', (result) => {
+executeCallback('node --version', (result) => {
   if (result.error) {
     console.error(result.error) // log the error
   } else {
@@ -128,10 +128,10 @@ _Asynchronously runs the specified command._
 #### Example 1 - async/await
 
 ```js
-import * as simple from 'simple-exec'
+import { execute } from 'simple-exec'
 
 try {
-  const result = await simple.execute('npm --version')
+  const result = await execute('npm --version')
 
   console.log(result) // log NPM version
 } catch (exp) {
@@ -144,10 +144,9 @@ try {
 #### Example 2 - async/then
 
 ```js
-import * as simple from 'simple-exec'
+import { execute } from 'simple-exec'
 
-simple
-  .execute('npm --version')
+ execute('npm --version')
   .then((version) => {
     console.log(version) // log NPM version
   })
@@ -163,10 +162,9 @@ simple
 _Asynchronously and in parallel runs the specified commands._
 
 ```js
-import * as simple from 'simple-exec'
+import { executeParallel } from 'simple-exec'
 
-simple
-  .executeParallel('npm --version', 'node --version', 'npm pack')
+ executeParallel('npm --version', 'node --version', 'npm pack')
   .then((results) => {
     console.log(results) // log the results which is a string array
   })
@@ -182,10 +180,9 @@ simple
 _Asynchronously and in parallel runs the specified commands._
 
 ```js
-import * as simple from 'simple-exec'
+import { executeParallel } from 'simple-exec'
 
-simple
-  .executeParallel(['npm --version', 'node --version', 'npm pack'])
+ executeParallel(['npm --version', 'node --version', 'npm pack'])
   .then((results) => {
     console.log(results) // log the results which is a string array
   })
@@ -212,22 +209,22 @@ Licensed under the MIT license which is available here, [MIT license](https://gi
 
 ## 🧬 Related
 
-[]()
+[@igor.dvlpr/regkeys](https://www.npmjs.com/package/@igor.dvlpr/regkeys)
 
-> __
+> _📚 An NPM package for fetching Windows registry keys. 🗝_
 
-[]()
+[@igor.dvlpr/recursive-readdir](https://www.npmjs.com/package/@igor.dvlpr/recursive-readdir)
 
-> __
+> _📖 Provides recursive readdir() and readdirSync() functions. 📁_
 
-[]()
+[@igor.dvlpr/zep](https://www.npmjs.com/package/@igor.dvlpr/zep)
 
-> __
+> _🧠 Zep is a zero-dependency, efficient debounce module. ⏰_
 
-[]()
+[@igor.dvlpr/zing](https://www.npmjs.com/package/@igor.dvlpr/zing)
 
-> __
+> _🐌 Zing is a C# style String formatter for JavaScript that empowers Strings with positional arguments - composite formatting. 🚀_
 
-[]()
+[@igor.dvlpr/extendable-string](https://www.npmjs.com/package/@igor.dvlpr/extendable-string)
 
-> __
+> _🦀 ExtendableString allows you to create strings on steroids that have custom transformations applied to them, unlike common, plain strings.. 🪀_
