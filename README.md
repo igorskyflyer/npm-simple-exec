@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://github.com/igorskyflyer/npm-simple-exec/raw/master/assets/simple-exec.png" title="SimpleExec - Command. Execution. Made. Simple." alt="SimpleExec" width="180" height="180">
+	<img src="https://github.com/igorskyflyer/npm-simple-exec/raw/main/assets/simple-exec.png" title="SimpleExec - Command. Execution. Made. Simple." alt="SimpleExec" width="180" height="180">
 </p>
 
 <h2 align="center">SimpleExec</h2>
