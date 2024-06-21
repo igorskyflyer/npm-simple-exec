@@ -14,11 +14,11 @@
 <p align="center">
  <a href="#table-of-contents">Table of contents</a>
  &nbsp;&#8226;&nbsp;
- <a href="#install">Install</a>
+ <a href="#-usage">Usage</a>
  &nbsp;&#8226;&nbsp;
- <a href="#releases">Releases</a>
+ <a href="#-api">API</a>
  &nbsp;&#8226;&nbsp;
- <a href="#api">API</a>
+ <a href="#-test">Test</a>
 </p>
 
 <br>
