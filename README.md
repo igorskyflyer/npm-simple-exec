@@ -1,6 +1,5 @@
 <p align="center">
 	<img src="https://github.com/igorskyflyer/npm-simple-exec/raw/main/assets/simple-exec.png" title="SimpleExec - Command. Execution. Made. Simple." alt="SimpleExec" width="180" height="180">
-	<img src="https://github.com/igorskyflyer/npm-simple-exec/raw/main/assets/simple-exec.png" title="SimpleExec - Command. Execution. Made. Simple." alt="SimpleExec" width="180" height="180">
 </p>
 
 <h2 align="center">SimpleExec</h2>
@@ -13,8 +12,6 @@
 
 
 <p align="center">
- <a href="#key-features">Key features</a>
- &nbsp;&#8226;&nbsp;
  <a href="#table-of-contents">Table of contents</a>
  &nbsp;&#8226;&nbsp;
  <a href="#install">Install</a>
@@ -48,15 +45,6 @@
 
 <br>
 <br>
-<br>
-
-## Key features
-
-> Execute shell commands in a simpler manner using **SimpleExec**.<br>
-> Supports sync, callback and async command execution.
-
-> Since version **1.1.0** parallel execution is also possible.
-
 <br>
 
 ## Table of contents
