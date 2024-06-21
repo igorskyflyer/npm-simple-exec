@@ -86,7 +86,7 @@ _Synchronously runs the specified command._
 <br>
 
 ```js
-import { executeSync } from 'simple-exec'
+import { executeSync } from '@igor.dvlpr/simple-exec'
 
 const result = executeSync('dir /b')
 
@@ -106,7 +106,7 @@ _Asynchronously, with a callback runs the specified command._
 <br>
 
 ```js
-import { executeCallback } from 'simple-exec'
+import { executeCallback } from '@igor.dvlpr/simple-exec'
 
 executeCallback('node --version', (result) => {
   if (result.error) {
@@ -128,7 +128,7 @@ _Asynchronously runs the specified command._
 #### Example 1 - async/await
 
 ```js
-import { execute } from 'simple-exec'
+import { execute } from '@igor.dvlpr/simple-exec'
 
 try {
   const result = await execute('npm --version')
@@ -144,7 +144,7 @@ try {
 #### Example 2 - async/then
 
 ```js
-import { execute } from 'simple-exec'
+import { execute } from '@igor.dvlpr/simple-exec'
 
  execute('npm --version')
   .then((version) => {
@@ -162,7 +162,7 @@ import { execute } from 'simple-exec'
 _Asynchronously and in parallel runs the specified commands._
 
 ```js
-import { executeParallel } from 'simple-exec'
+import { executeParallel } from '@igor.dvlpr/simple-exec'
 
  executeParallel('npm --version', 'node --version', 'npm pack')
   .then((results) => {
@@ -180,7 +180,7 @@ import { executeParallel } from 'simple-exec'
 _Asynchronously and in parallel runs the specified commands._
 
 ```js
-import { executeParallel } from 'simple-exec'
+import { executeParallel } from '@igor.dvlpr/simple-exec'
 
  executeParallel(['npm --version', 'node --version', 'npm pack'])
   .then((results) => {
