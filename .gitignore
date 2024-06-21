@@ -1,13 +1,4 @@
-# Directories
-
-## Node modules
-/node_modules/
-## Release directory
-/dist/
-
-# Files
-
-## NPM Ignore
-.npmignore
+node_modules/
+dist/
 ## GitHub social image
 git-social.png
