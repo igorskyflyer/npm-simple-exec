@@ -37,7 +37,6 @@ export function executeSync(command: string): ExecResult {
  * @param command Command to execute.
  * @param callback The function to call after the command is executed.
  * @throws Will throw an error if no command is provided.
- * @returns Returns the `ExecResult` object with standard and error outputs.
  */
 export function executeCallback(command: string, callback: ExecCallback): void {
   if (typeof command !== 'string') {
