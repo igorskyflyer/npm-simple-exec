@@ -250,7 +250,8 @@ const result: string[] = await executeParallel([
   'npm --version',
   'node --version',
   'npm --version'
-]) // will log ['<npm version>', '<Node version>', '<npm version>'], e.g. [ '10.8.2', 'v22.5.1', '10.8.2' ]
+]) // will log ['<npm version>', '<Node version>', '<npm version>']
+  // e.g. [ '10.8.2', 'v22.5.1', '10.8.2' ]
 ```
 
 ---
