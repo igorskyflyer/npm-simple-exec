@@ -98,13 +98,20 @@ A callback with the method signature of:
 ExecCallback = (result: ExecResult) => void
 ```
 
-<br>
+---
 
 ### Functions
 
 #### `executeSync(command: string): ExecResult`
 
-_Synchronously runs the specified command._
+*Synchronously executes the specified command.*  
+
+`command` - Command to execute.  
+
+<br>
+
+Will throw an error if no command is provided.  
+Returns the standard output.
 
 <br>
 
@@ -120,11 +127,18 @@ if (result.error) {
 }
 ```
 
-<br>
+---
 
 #### `executeCallback(command: string, callback: ExecCallback): void`
 
-_Asynchronously, with a callback runs the specified command._
+*Asynchronously, with a callback executes the specified command.*  
+
+`command` - Command to execute.  
+`callback` - The function to call after the command is executed.
+
+<br>
+
+Will throw an error if no command is provided.
 
 <br>
 
@@ -140,15 +154,19 @@ executeCallback('node --version', (result) => {
 })
 ```
 
-<br>
+---
 
 #### `execute(command: string): Promise<string>`
 
-_Asynchronously runs the specified command._
+*Asynchronously executes the specified command.*  
+
+`command` - Command to execute.  
 
 <br>
 
-##### Example 1 - async/await
+Will throw an error if no command is provided.
+
+<br>
 
 ```js
 import { execute } from '@igor.dvlpr/simple-exec'
@@ -162,56 +180,56 @@ try {
 }
 ```
 
-<br>
+---
 
-##### Example 2 - async/then
+#### `executeParallel(...commands: string[]): Promise<string[]>;`
 
-```js
-import { execute } from '@igor.dvlpr/simple-exec'
+*Asynchronously and in parallel executes the specified commands.*  
 
- execute('npm --version')
-  .then((version) => {
-    console.log(version) // log NPM version
-  })
-  .catch((error) => {
-    console.error(error) // log the error
-  })
-```
+`commands` - Commands to execute, rest string parameters, e.g. `executeParallel('command-one', 'command-two', 'command-three')`.  
 
 <br>
 
-#### `executeParallel(args: ...string): Promise<string[]>;`
+Will throw an error if any of the commands causes an error.
 
-_Asynchronously and in parallel runs the specified commands._
+<br>
 
 ```js
 import { executeParallel } from '@igor.dvlpr/simple-exec'
 
- executeParallel('npm --version', 'node --version', 'npm pack')
-  .then((results) => {
-    console.log(results) // log the results which is a string array
-  })
-  .catch((error) => {
-    console.error(error) // log the error
-  })
+try {
+  const results: string[] = await executeParallel('npm --version', 'node --version', 'npm pack')
+  console.log(results) // log the results which is a string array
+}
+catch(error) {
+  console.error(error) // log the error
+}
 ```
+
+---
+
+#### `executeParallel(commands: string[]): Promise<string[]>`
+
+*Asynchronously and in parallel executes the specified commands.*  
+
+`commands` - Commands to execute, a string array, e.g. `executeParallel(['command-one', 'command-two', 'command-three'])`.  
 
 <br>
 
-#### `executeParallel(args: string[]): Promise<string[]>`
+Will throw an error if any of the commands causes an error.
 
-_Asynchronously and in parallel runs the specified commands._
+<br>
 
 ```js
 import { executeParallel } from '@igor.dvlpr/simple-exec'
 
- executeParallel(['npm --version', 'node --version', 'npm pack'])
-  .then((results) => {
-    console.log(results) // log the results which is a string array
-  })
-  .catch((error) => {
-    console.error(error) // log the error
-  })
+try {
+ const results: string[] = executeParallel(['npm --version', 'node --version', 'npm pack'])
+  console.log(results) // log the results which is a string array
+}
+catch(error) {
+  console.error(error) // log the error
+}
 ```
 
 ---
