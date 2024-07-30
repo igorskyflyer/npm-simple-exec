@@ -182,7 +182,7 @@ try {
   const result: string = await execute('npm --version')
 
   console.log(result) // log NPM version
-} catch (exp) {
+} catch(exp) {
   console.error(exp) // log the error
 }
 ```
@@ -208,8 +208,7 @@ import { executeParallel } from '@igor.dvlpr/simple-exec'
 try {
   const results: string[] = await executeParallel('npm --version', 'node --version', 'npm pack')
   console.log(results) // log the results which is a string array
-}
-catch(exp) {
+} catch(exp) {
   console.error(exp) // log the error
 }
 ```
@@ -235,8 +234,7 @@ import { executeParallel } from '@igor.dvlpr/simple-exec'
 try {
  const results: string[] = executeParallel(['npm --version', 'node --version', 'npm pack'])
   console.log(results) // log the results which is a string array
-}
-catch(exp) {
+} catch(exp) {
   console.error(exp) // log the error
 }
 ```
