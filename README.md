@@ -83,6 +83,8 @@ The API exposes two types:
 
 ### Types
 
+<br>
+
 #### `ExecResult`
 
 A simple object structured as:  
@@ -107,6 +109,8 @@ type ExecCallback = (result: ExecResult) => void
 ---
 
 ### Functions
+
+<br>
 
 #### `executeSync(command: string): ExecResult`
 
