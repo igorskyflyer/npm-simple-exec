@@ -8,14 +8,19 @@
 
 <p align="right"><em>30-Jul-2024</em></p>
 
-- **❌ BREAKING**: inline type `ExecCallback`
-- **❌ BREAKING**: inline type `ExecResult`
+- **❌ BREAKING**: inline type [`ExecCallback`](./README.md#execcallback)
+- **❌ BREAKING**: inline type [`ExecResult`](./README.md#execresult)
 
 <br>
 
-- **💻 dev**: major refactor of `executeParallel`
-- **💻 dev**: minor refactor of `execute`
-- **💻 dev**: minor refactor of `executeSync`
+- **💻 dev**: major refactor of [`executeParallel()`](./README.md#executeparallelcommands-string-promisestring)
+- **💻 dev**: minor refactor of [`execute()`](./README.md#executecommand-string-promisestring)
+- **💻 dev**: minor refactor of [`executeSync()`](./README.md#executesynccommand-string-execresult)
+
+<br>
+
+- **📜 docs**: fix API JSDocs
+- **📜 docs**: fix [README](./README.md) examples
 
 <br>
 <br>
