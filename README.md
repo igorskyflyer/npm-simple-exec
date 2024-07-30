@@ -179,11 +179,11 @@ Returns the standard output.
 import { execute } from '@igor.dvlpr/simple-exec'
 
 try {
-  const result = await execute('npm --version')
+  const result: string = await execute('npm --version')
 
   console.log(result) // log NPM version
 } catch (exp) {
-  console.error(result.error) // log the error
+  console.error(exp) // log the error
 }
 ```
 
@@ -209,8 +209,8 @@ try {
   const results: string[] = await executeParallel('npm --version', 'node --version', 'npm pack')
   console.log(results) // log the results which is a string array
 }
-catch(error) {
-  console.error(error) // log the error
+catch(exp) {
+  console.error(exp) // log the error
 }
 ```
 
@@ -236,8 +236,8 @@ try {
  const results: string[] = executeParallel(['npm --version', 'node --version', 'npm pack'])
   console.log(results) // log the results which is a string array
 }
-catch(error) {
-  console.error(error) // log the error
+catch(exp) {
+  console.error(exp) // log the error
 }
 ```
 
