@@ -144,8 +144,7 @@ if (result.error) {
 
 <br>
 
-Will throw an error if no command is provided.  
-Returns the `ExecResult` object with standard and error outputs.
+Will throw an error if no command is provided.
 
 <br>
 
