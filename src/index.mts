@@ -13,7 +13,7 @@ export type ExecCallback = (result: ExecResult) => void
  * Synchronously executes the specified command.
  * @param command Command to execute.
  * @throws Will throw an error if no command is provided.
- * @returns Returns the standard output.
+ * @returns Returns the `ExecResult` object with standard and error outputs.
  */
 export function executeSync(command: string): ExecResult {
   if (typeof command !== 'string') {
@@ -37,6 +37,7 @@ export function executeSync(command: string): ExecResult {
  * @param command Command to execute.
  * @param callback The function to call after the command is executed.
  * @throws Will throw an error if no command is provided.
+ * @returns Returns the `ExecResult` object with standard and error outputs.
  */
 export function executeCallback(command: string, callback: ExecCallback): void {
   if (typeof command !== 'string') {
@@ -59,6 +60,7 @@ export function executeCallback(command: string, callback: ExecCallback): void {
  * Asynchronously executes the specified command.
  * @param command Command to execute.
  * @throws Will throw an error if no command is provided.
+ * @returns Returns the standard output.
  */
 export async function execute(command: string): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -76,12 +78,14 @@ export async function execute(command: string): Promise<string> {
  * Asynchronously and in parallel executes the specified commands.
  * @param commands Commands to execute, rest string parameters, e.g. `executeParallel('command-one', 'command-two', 'command-three')`.
  * @throws Will throw an error if any of the commands causes an error.
+ * @returns Returns the standard output of each command.
  */
 export async function executeParallel(...commands: string[]): Promise<string[]>
 /**
  * Asynchronously and in parallel executes the specified commands.
  * @param commands Commands to execute, a string array, e.g. `executeParallel(['command-one', 'command-two', 'command-three'])`.
  * @throws Will throw an error if any of the commands causes an error.
+ * @returns Returns the standard output of each command.
  */
 export async function executeParallel(commands: string[]): Promise<string[]>
 
