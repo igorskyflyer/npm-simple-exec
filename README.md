@@ -117,7 +117,7 @@ type ExecCallback = (result: ExecResult) => void
 <br>
 
 Will throw an error if no command is provided.  
-Returns the standard output.
+Returns the `ExecResult` object with standard and error outputs.
 
 <br>
 
@@ -144,7 +144,8 @@ if (result.error) {
 
 <br>
 
-Will throw an error if no command is provided.
+Will throw an error if no command is provided.  
+Returns the `ExecResult` object with standard and error outputs.
 
 <br>
 
@@ -170,7 +171,8 @@ executeCallback('node --version', (result) => {
 
 <br>
 
-Will throw an error if no command is provided.
+Will throw an error if no command is provided.  
+Returns the standard output.
 
 <br>
 
@@ -196,7 +198,8 @@ try {
 
 <br>
 
-Will throw an error if any of the commands causes an error.
+Will throw an error if any of the commands causes an error.  
+Returns the standard output of each command.
 
 <br>
 
@@ -222,7 +225,8 @@ catch(error) {
 
 <br>
 
-Will throw an error if any of the commands causes an error.
+Will throw an error if any of the commands causes an error.  
+Returns the standard output of each command.
 
 <br>
 
