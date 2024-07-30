@@ -1,97 +1,110 @@
 // Author: Igor Dimitrijević (@igorskyflyer)
 
 import { exec, execSync } from 'node:child_process'
-import type { ExecCallback } from './ExecCallback.mjs'
-import type { ExecResult } from './ExecResult.mjs'
+
+export interface ExecResult {
+  error: string | unknown
+  output: string
+}
+
+export type ExecCallback = (result: ExecResult) => void
 
 /**
- * Synchronously runs the specified command.
- * @param command Command to run.
+ * Synchronously executes the specified command.
+ * @param command Command to execute.
  * @throws Will throw an error if no command is provided.
  * @returns Returns the standard output.
  */
 export function executeSync(command: string): ExecResult {
-	if (typeof command !== 'string') {
-		throw 'Error: No command provided.'
-	}
+  if (typeof command !== 'string') {
+    throw new Error('No command provided.')
+  }
 
-	try {
-		const output: string = execSync(command).toString().trim()
-		return { error: '', output }
-	} catch (exp) {
-		if (exp instanceof Error) {
-			return { error: exp.message, output: '' }
-		} else {
-			return { error: exp, output: '' }
-		}
-	}
+  try {
+    const output: string = execSync(command).toString().trim()
+    return { error: '', output }
+  } catch (exp) {
+    if (exp instanceof Error) {
+      return { error: exp.message, output: '' }
+    }
+
+    return { error: exp, output: '' }
+  }
 }
 
 /**
- * Asynchronously, with a callback runs the specified command.
- * @param command Command to run.
- * @param callback The function to call after the NPM function is executed.
+ * Asynchronously, with a callback executes the specified command.
+ * @param command Command to execute.
+ * @param callback The function to call after the command is executed.
  * @throws Will throw an error if no command is provided.
  */
 export function executeCallback(command: string, callback: ExecCallback): void {
-	if (typeof command !== 'string') {
-		throw 'Error: No command provided.'
-	}
+  if (typeof command !== 'string') {
+    throw new Error('No command provided.')
+  }
 
-	exec(command, (error, stdout) => {
-		stdout = stdout.trim()
+  exec(command, (error, stdout) => {
+    const output: string = stdout.trim()
 
-		if (error) {
-			callback({ error: error.message.trim(), output: stdout })
-			return
-		}
+    if (error) {
+      callback({ error: error.message.trim(), output })
+      return
+    }
 
-		callback({ error: '', output: stdout })
-	})
+    callback({ error: '', output })
+  })
 }
 
 /**
- * Asynchronously runs the specified command.
- * @param command Command to run.
+ * Asynchronously executes the specified command.
+ * @param command Command to execute.
  * @throws Will throw an error if no command is provided.
  */
 export async function execute(command: string): Promise<string> {
-	return new Promise((resolve, reject) => {
-		executeCallback(command, (result) => {
-			if (result.error) {
-				reject(result.error)
-			} else {
-				resolve(result.output)
-			}
-		})
-	})
+  return new Promise((resolve, reject) => {
+    executeCallback(command, (result) => {
+      if (result.error) {
+        reject(result.error)
+      } else {
+        resolve(result.output)
+      }
+    })
+  })
 }
 
 /**
- * Asynchronously and in parallel runs the specified commands.
- * @param args Commands to run, either a string array, e.g. (['command', 'command', 'command'], ) or rest arguments, strings also, e.g. ('command', 'command', 'command')
- * @throws Will throw an error if any of the commands is not defined.
+ * Asynchronously and in parallel executes the specified commands.
+ * @param commands Commands to execute, rest string parameters, e.g. `executeParallel('command-one', 'command-two', 'command-three')`.
+ * @throws Will throw an error if any of the commands causes an error.
  */
-export async function executeParallel(...args: string[]): Promise<string[]> {
-	if (!args) {
-		throw 'Error: No arguments provided.'
-	}
+export async function executeParallel(...commands: string[]): Promise<string[]>
+/**
+ * Asynchronously and in parallel executes the specified commands.
+ * @param commands Commands to execute, a string array, e.g. `executeParallel(['command-one', 'command-two', 'command-three'])`.
+ * @throws Will throw an error if any of the commands causes an error.
+ */
+export async function executeParallel(commands: string[]): Promise<string[]>
 
-	const commands: Promise<string>[] = []
+export async function executeParallel(...args: any[]): Promise<string[]> {
+  if (typeof args !== 'string' && !Array.isArray(args)) {
+    throw new Error('No arguments provided.')
+  }
 
-	if (typeof args === 'string') {
-		const argsCount = arguments.length
+  const argsCount: number = args.length
 
-		for (let i = 0; i < argsCount; i++) {
-			commands.push(execute(arguments[i]))
-		}
-	} else if (Array.isArray(args)) {
-		const arrayCount: number = args.length
+  if (argsCount === 0) {
+    throw new Error('No valid arguments provided.')
+  }
 
-		for (let i = 0; i < arrayCount; i++) {
-			commands.push(execute(args[i]))
-		}
-	}
+  const executors: Promise<string>[] = []
+  const commands: string[] = Array.isArray(args[0]) ? args[0] : args
+  const commandsCount: number = commands.length
 
-	return Promise.all(commands)
+  for (let i = 0; i < commandsCount; i++) {
+    if (typeof commands[i] === 'string') {
+      executors.push(execute(commands[i]))
+    }
+  }
+
+  return Promise.all(executors)
 }
