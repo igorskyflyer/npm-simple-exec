@@ -101,7 +101,7 @@ A simple object structured as:
 A callback with the method signature of:  
 
 ```ts
-ExecCallback = (result: ExecResult) => void
+type ExecCallback = (result: ExecResult) => void
 ```
 
 ---
