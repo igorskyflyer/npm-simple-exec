@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="https://github.com/igorskyflyer/npm-simple-exec/raw/main/assets/simple-exec.png" title="SimpleExec - Command. Execution. Made. Simple." alt="SimpleExec" width="180" height="180">
+  <img src="https://github.com/igorskyflyer/npm-simple-exec/raw/main/assets/simple-exec.png" title="SimpleExec - Command. Execution. Made. Simple." alt="SimpleExec" width="180" height="180">
 </div>
 
 <h1 align="center">SimpleExec</h1>
@@ -7,7 +7,7 @@
 <br>
 
 <div align="center">
-	<em>🕺Command.</em> <strong>Execution.</strong> <em>Made.</em> <strong>Simple. ▶</strong>
+  <em>🕺Command.</em> <strong>Execution.</strong> <em>Made.</em> <strong>Simple. ▶</strong>
 </div>
 
 <br>
