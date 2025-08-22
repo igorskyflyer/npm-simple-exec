@@ -1,60 +1,24 @@
 <div align="center">
-  <img src="https://github.com/igorskyflyer/npm-simple-exec/raw/main/assets/simple-exec.png" title="SimpleExec - Command. Execution. Made. Simple." alt="SimpleExec" width="180" height="180">
-</div>
-
+  <img src="https://raw.githubusercontent.com/igorskyflyer/npm-simple-exec/main/media/simple-exec.png" alt="Icon of SimpleExec" width="256" height="256">
 <h1 align="center">SimpleExec</h1>
+</div>
 
 <br>
 
 <div align="center">
-  <em>🕺Command.</em> <strong>Execution.</strong> <em>Made.</em> <strong>Simple. ▶</strong>
+  🕺 Command. Execution. Made. Simple. ▶
 </div>
 
 <br>
 <br>
 
-<div align="center">
-  <blockquote>
-    <br>
-    <h4>💖 Support further development</h4>
-    <span>I work hard for every project, including this one
-    <br>
-    and your support means a lot to me!
-    <br>
-    <br>
-    Consider buying me a coffee. ☕
-    <br>
-    <strong>Thank you for supporting my efforts! 🙏😊</strong></span>
-    <br>
-    <br>
-    <a href="https://ko-fi.com/igorskyflyer" target="_blank"><img src="https://raw.githubusercontent.com/igorskyflyer/igorskyflyer/main/assets/ko-fi.png" alt="Donate to igorskyflyer" width="150"></a>
-    <br>
-    <br>
-    <a href="https://github.com/igorskyflyer"><em>@igorskyflyer</em></a>
-    <br>
-    <br>
-    <br>
-  </blockquote>
-</div>
+## 📃 Table of Contents
 
-<br>
-<br>
-
-## 📃 Table of contents
-
+- [Features](#-features)
 - [Usage](#-usage)
 - [API](#-api)
-  - [Types](#types)
-    - [ExecResult](#execresult)
-    - [ExecCallback](#execcallback)
-  - [Functions](#functions)
-    - [executeSync()](#executesynccommand-string-execresult)
-    - [executeCallback()](#executecallbackcommand-string-callback-execcallback-void)
-    - [execute()](#executecommand-string-promisestring)
-    - [executeParallel(...commands)](#executeparallelcommands-string-promisestring)
-    - [executeParallel(commands)](#executeparallelcommands-string-promisestring-1)
-- [Examples](#-examples)
 - [Changelog](#-changelog)
+- [Support](#-support)
 - [License](#-license)
 - [Related](#-related)
 - [Author](#-author)
@@ -62,14 +26,31 @@
 <br>
 <br>
 
+## 🤖 Features
+
+- ⚡ Synchronous command execution with trimmed output
+- ⏳ Asynchronous command execution with error handling
+- 📞 Callback-based result delivery for executed commands
+- 📤 Promise-based command execution returning standard output
+- 🧩 Parallel execution of multiple commands in one call
+- 🛡️ Input validation with descriptive error messages
+- 🗂️ Flexible support for both rest parameters and string arrays
+- 🧹 Automatic trimming of standard output for clean results
+
+<br>
+<br>
+
 ## 🕵🏼 Usage
 
-Install it by executing:
+Install it by executing any of the following, depending on your preferred package manager:
 
 ```shell
-npm i '@igor.dvlpr/simple-exec'
+pnpm add @igorskyflyer/simple-exec
+yarn add @igorskyflyer/simple-exec
+npm i @igorskyflyer/simple-exec
 ```
 
+<br>
 <br>
 
 ## 🤹🏼 API
@@ -122,7 +103,7 @@ Returns the `ExecResult` object with standard and error outputs.
 <br>
 
 ```js
-import { executeSync } from '@igor.dvlpr/simple-exec'
+import { executeSync } from '@igorskyflyer/simple-exec'
 
 const result = executeSync('dir /b')
 
@@ -149,7 +130,7 @@ Will throw an error if no command is provided.
 <br>
 
 ```js
-import { executeCallback } from '@igor.dvlpr/simple-exec'
+import { executeCallback } from '@igorskyflyer/simple-exec'
 
 executeCallback('node --version', (result) => {
   if (result.error) {
@@ -176,7 +157,7 @@ Returns the standard output.
 <br>
 
 ```js
-import { execute } from '@igor.dvlpr/simple-exec'
+import { execute } from '@igorskyflyer/simple-exec'
 
 try {
   const result: string = await execute('npm --version')
@@ -203,7 +184,7 @@ Returns the standard output of each command.
 <br>
 
 ```js
-import { executeParallel } from '@igor.dvlpr/simple-exec'
+import { executeParallel } from '@igorskyflyer/simple-exec'
 
 try {
   const results: string[] = await executeParallel('npm --version', 'node --version', 'npm pack')
@@ -229,7 +210,7 @@ Returns the standard output of each command.
 <br>
 
 ```js
-import { executeParallel } from '@igor.dvlpr/simple-exec'
+import { executeParallel } from '@igorskyflyer/simple-exec'
 
 try {
  const results: string[] = executeParallel(['npm --version', 'node --version', 'npm pack'])
@@ -245,7 +226,7 @@ try {
 
 `example.ts`
 ```ts
-import { executeParallel } from '@igor.dvlpr/simple-exec'
+import { executeParallel } from '@igorskyflyer/simple-exec'
 
 const result: string[] = await executeParallel([
   'npm --version',
@@ -255,53 +236,75 @@ const result: string[] = await executeParallel([
   // e.g. [ '10.8.2', 'v22.5.1', '10.8.2' ]
 ```
 
----
+
+
+<br>
+<br>
 
 ## 📝 Changelog
 
-📑 The changelog is available here: [CHANGELOG.md](https://github.com/igorskyflyer/npm-simple-exec/blob/main/CHANGELOG.md).
+📑 The changelog is available here, [CHANGELOG.md](https://github.com/igorskyflyer/npm-simple-exec/blob/main/CHANGELOG.md).
 
----
+<br>
+<br>
 
 ## 🪪 License
 
-Licensed under the MIT license which is available here, [MIT license](https://github.com/igorskyflyer/npm-simple-exec/blob/main/LICENSE).
+Licensed under the MIT license which is available here, [MIT license](https://github.com/igorskyflyer/npm-simple-exec/blob/main/LICENSE.txt).
 
----
+<br>
+<br>
+
+## 💖 Support
+
+<div align="center">
+  I work hard for every project, including this one and your support means a lot to me!
+  <br>
+  Consider buying me a coffee. ☕
+  <br>
+  <br>
+  <a href="https://ko-fi.com/igorskyflyer" target="_blank"><img src="https://raw.githubusercontent.com/igorskyflyer/igorskyflyer/main/assets/ko-fi.png" alt="Donate to igorskyflyer" width="180" height="46"></a>
+  <br>
+  <br>
+  <em>Thank you for supporting my efforts!</em> 🙏😊
+</div>
+
+<br>
+<br>
 
 ## 🧬 Related
 
-[@igor.dvlpr/mp3size](https://www.npmjs.com/package/@igor.dvlpr/mp3size)
+[@igorskyflyer/mp3size](https://www.npmjs.com/package/@igorskyflyer/mp3size)
 
 > _🧮 Calculates an estimated file size of Mp3 files. 🎶_
 
 <br>
 
-[@igor.dvlpr/windev](https://www.npmjs.com/package/@igor.dvlpr/windev)
+[@igorskyflyer/windev](https://www.npmjs.com/package/@igorskyflyer/windev)
 
 > _🍃 Provides ways of checking whether a path is a legacy Windows device. 💾_
 
 <br>
 
-[@igor.dvlpr/emojilyzer](https://www.npmjs.com/package/@igor.dvlpr/emojilyzer)
+[@igorskyflyer/emojilyzer](https://www.npmjs.com/package/@igorskyflyer/emojilyzer)
 
 > _💬 Emojifies strings, converting textual representations of emojis to graphical ones. 🖌️_
 
 <br>
 
-[@igor.dvlpr/astro-post-excerpt](https://www.npmjs.com/package/@igor.dvlpr/astro-post-excerpt)
+[@igorskyflyer/astro-post-excerpt](https://www.npmjs.com/package/@igorskyflyer/astro-post-excerpt)
 
 > _⭐ An Astro component that renders post excerpts for your Astro blog - directly from your Markdown and MDX files. Astro v2+ collections are supported as well! 💎_
 
 <br>
 
-[@igor.dvlpr/scrollend-polyfill](https://www.npmjs.com/package/@igor.dvlpr/scrollend-polyfill)
+[@igorskyflyer/scrollend-polyfill](https://www.npmjs.com/package/@igorskyflyer/scrollend-polyfill)
 
 > _🛴 A performant and light (< 1.5KB) JavaScript polyfill for the scrollend Event. ⛸️_
 
----
-
+<br>
+<br>
 <br>
 
-### 👨🏻‍💻 Author
+## 👨🏻‍💻 Author
 Created by **Igor Dimitrijević** ([*@igorskyflyer*](https://github.com/igorskyflyer/)).
