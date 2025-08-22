@@ -9,13 +9,13 @@ import {
 describe('🧪 simple-exec tests 🧪', () => {
   describe('executeSync()', () => {
     test('execute a command and return the output', () => {
-      const result = executeSync('npm --version')
+      const result = executeSync('pnpm --version')
       assert.isNotEmpty(result.output)
     })
 
     test('execute a non existing command and return an error', () => {
       // cspell:disable-next
-      const result = executeSync('npm --versionsomda')
+      const result = executeSync('pnpm --versionsomda')
 
       if (result.error) {
         assert.isNotEmpty(result.error)
@@ -25,14 +25,14 @@ describe('🧪 simple-exec tests 🧪', () => {
 
   describe('executeCallback()', () => {
     test('execute a command and return the output', () => {
-      executeCallback('npm --version', (result) => {
+      executeCallback('pnpm --version', (result) => {
         assert.isNotEmpty(result.output)
       })
     })
 
     test('execute a non existing command and return an error', () => {
       // cspell:disable-next
-      executeCallback('npm --versionsomda', (result) => {
+      executeCallback('pnpm --versionsomda', (result) => {
         if (result.error) {
           assert.isNotEmpty(result.error)
         }
@@ -42,14 +42,14 @@ describe('🧪 simple-exec tests 🧪', () => {
 
   describe('execute()', () => {
     test('execute a command and return the output', async () => {
-      const result: string = await execute('npm --version')
+      const result: string = await execute('pnpm --version')
       assert.isNotEmpty(result)
     })
 
     test('execute a non existing command and return an error', async () => {
       try {
         // cspell:disable-next
-        await execute('npm --versionsomda')
+        await execute('pnpm --versionsomda')
       } catch (error) {
         assert.isNotEmpty(error)
       }
@@ -59,9 +59,9 @@ describe('🧪 simple-exec tests 🧪', () => {
   describe('executeParallel()', () => {
     test('execute a batch of commands in parallel', async () => {
       const result: string[] = await executeParallel([
-        'npm --version',
+        'pnpm --version',
         'node --version',
-        'npm --version'
+        'pnpm --version'
       ])
 
       assert.equal(result.length, 3)
