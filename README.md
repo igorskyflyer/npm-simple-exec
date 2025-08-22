@@ -44,9 +44,15 @@
 
 Install it by executing any of the following, depending on your preferred package manager:
 
-```shell
+```bash
 pnpm add @igorskyflyer/simple-exec
+```
+
+```bash
 yarn add @igorskyflyer/simple-exec
+```
+
+```bash
 npm i @igorskyflyer/simple-exec
 ```
 
