@@ -1,20 +1,22 @@
 {
-    "name": "@igor.dvlpr/simple-exec",
-    "version": "2.0.0",
+    "name": "@igorskyflyer/simple-exec",
+    "version": "2.0.1",
     "description": "🕺 Command. Execution. Made. Simple. ▶",
     "sideEffects": false,
     "engines": {
-        "node": ">=20.0"
+        "node": ">=22.0"
     },
-    "types": "./dist/index.d.mts",
-    "main": "./dist/index.mjs",
-    "module": "./dist/index.mjs",
-    "files": ["dist"],
+    "type": "module",
+    "types": "./dist/index.d.ts",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "build": "tsc",
         "test": "vitest --run",
-        "debug": "vitest",
-        "pub": "npm test && npm run build && npm publish --access public"
+        "pub": "pnpm test && git push origin main --tags"
     },
     "keywords": [
         "execute",
@@ -26,11 +28,10 @@
         "batch",
         "bash",
         "parallel",
-        "igorskyflyer",
-        "igor.dvlpr"
+        "igorskyflyer"
     ],
     "license": "MIT",
-    "author": "Igor Dimitrijević <igor.dvlpr@gmail.com> (https://github.com/igorskyflyer)",
+    "author": "Igor Dimitrijević <support@igorskyflyer.me> (https://github.com/igorskyflyer)",
     "funding": "https://ko-fi.com/igorskyflyer",
     "homepage": "https://github.com/igorskyflyer/npm-simple-exec",
     "repository": {
@@ -41,10 +42,14 @@
         "url": "https://github.com/igorskyflyer/npm-simple-exec/issues"
     },
     "devDependencies": {
-        "@biomejs/biome": "^1.8.3",
-        "@igor.dvlpr/biome-config-igorskyflyer": "^1.0.2",
-        "@types/node": "^20.14.13",
-        "typescript": "^5.5.4",
-        "vitest": "^2.0.4"
-    }
+        "@biomejs/biome": "^2.2.0",
+        "@igor.dvlpr/biome-config-igorskyflyer": "^2.0.1",
+        "@types/node": "^22.17.2",
+        "typescript": "^5.9.2",
+        "vitest": "^3.2.4"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "packageManager": "pnpm@10.15.0"
 }
