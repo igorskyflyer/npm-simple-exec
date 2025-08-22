@@ -4,7 +4,7 @@ import {
   executeCallback,
   executeParallel,
   executeSync
-} from '../src/index.mts'
+} from '../src/index.js'
 
 describe('🧪 simple-exec tests 🧪', () => {
   describe('executeSync()', () => {
