@@ -1,12 +1,10 @@
-## 📒 Changelog
+# 📒 Changelog
 
-### of [@igor.dvlpr/simple-exec](https://github.com/igorskyflyer/npm-simple-exec)
+### of [@igorskyflyer/simple-exec](https://github.com/igorskyflyer/npm-simple-exec)
 
 <br>
 
-## v2.0.0
-
-<p align="right"><em>30-Jul-2024</em></p>
+## v2.0.0 (*30-Jul-2024*)
 
 - **❌ BREAKING**: inline type [`ExecCallback`](./README.md#execcallback)
 - **❌ BREAKING**: inline type [`ExecResult`](./README.md#execresult)
@@ -25,8 +23,5 @@
 <br>
 <br>
 
-## v1.0.0
-
-<p align="right"><em>21-Jun-2024</em></p>
-
+## v1.0.0 (*21-Jun-2024*)
 - **🚀 launch**: initial release 🎉
